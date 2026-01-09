@@ -7,7 +7,235 @@
     <meta name="description" content="Découvrez l'histoire de l'ADSEK 976, notre création et notre évolution dans la protection de l'environnement à Koungou, Mayotte">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+    <style>
+        /* Styles spécifiques à la page Historique */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            left: 25%;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            right: 25%;
+            transform: translate(50%, -50%);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-icon {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            right: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .timeline-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .timeline-content p {
+            color: var(--medium-text);
+            line-height: 1.7;
+        }
+
+        /* Section de valeurs */
+        .values-section {
+            background: linear-gradient(135deg, var(--light-green), rgba(232, 245, 233, 0.8));
+            padding: 4rem 20px;
+            margin: 5rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Section fondateurs */
+        .founders-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .founder-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .founder-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .founder-info {
+            padding: 1.5rem;
+        }
+
+        .founder-info h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive pour la timeline */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                text-align: left !important;
+            }
+
+            .timeline-year,
+            .timeline-icon {
+                left: 20px !important;
+                right: auto !important;
+                transform: translateY(-50%) !important;
+            }
+
+            .timeline-year {
+                left: 0 !important;
+                transform: translate(-100%, -50%) !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .values-container,
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- En-tête -->
@@ -25,27 +253,24 @@
     
     <!-- Navigation -->
     <nav>
-    <div class="nav-container">
-        <button class="hamburger" aria-label="Ouvrir le menu">☰</button>
         <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="historique.html">Historique</a></li>
-            <li><a href="equipe.html">Équipe</a></li>
-            <li><a href="missions.html">Nos Missions</a></li>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="historique.html" class="active"><i class="fas fa-history"></i> Historique</a></li>
+            <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+            <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
             <li class="dropdown">
-                <button class="dropbtn">Actions ▼</button>
+                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
-                    <a href="actions.html">Toutes les Actions</a>
-                    <a href="reboisement.html">Reboisement</a>
-                    <a href="sensibilisation.html">Sensibilisation</a>
-                    <a href="nettoyage.html">Nettoyage</a>
+                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
+                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
+                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
+                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
                 </div>
             </li>
-            <li><a href="partenaires.html">Partenaires</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
-    </div>
-</nav>
+    </nav>
     
     <main>
         <!-- Section introduction -->
@@ -297,22 +522,5 @@
             <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
         </div>
     </footer>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navUl = document.querySelector('nav ul');
-
-    hamburger.addEventListener('click', function() {
-        navUl.classList.toggle('active');
-    });
-
-    // Ferme le menu après clic sur un lien
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            navUl.classList.remove('active');
-        });
-    });
-});
-</script>
 </body>
 </html>
