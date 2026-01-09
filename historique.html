@@ -1,578 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historique - ADSEK 976 | Notre histoire et notre parcours</title>
-    <meta name="description" content="Découvrez l'histoire de l'ADSEK 976, notre création et notre évolution dans la protection de l'environnement à Koungou, Mayotte">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* Styles spécifiques à la page Historique */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 3rem auto;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 4rem;
-            width: 100%;
-        }
-
-        .timeline-content {
-            position: relative;
-            width: 45%;
-            padding: 1.5rem;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-right: auto;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .timeline-year {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 2;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-year {
-            left: 25%;
-            transform: translate(-50%, -50%);
-        }
-
-        .timeline-item:nth-child(even) .timeline-year {
-            right: 25%;
-            transform: translate(50%, -50%);
-        }
-
-        .timeline-icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: var(--white);
-            border: 4px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            z-index: 2;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-icon {
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .timeline-item:nth-child(even) .timeline-icon {
-            right: 50%;
-            transform: translate(50%, -50%);
-        }
-
-        .timeline-content h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .timeline-content p {
-            color: var(--medium-text);
-            line-height: 1.7;
-        }
-
-        /* Section de valeurs */
-        .values-section {
-            background: linear-gradient(135deg, var(--light-green), rgba(232, 245, 233, 0.8));
-            padding: 4rem 20px;
-            margin: 5rem 0;
-            border-radius: var(--border-radius);
-        }
-
-        .values-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .value-card h4 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Section fondateurs */
-        .founders-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .founders-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .founder-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .founder-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .founder-info {
-            padding: 1.5rem;
-        }
-
-        .founder-info h4 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .founder-role {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Responsive pour la timeline */
-        /* ================= TIMELINE MOBILE ================= */
-@media (max-width: 900px) {  /* ← un peu plus large que 768px pour anticiper les tablettes */
-    .timeline {
-        max-width: 100%;
-        padding: 1rem 0;
-    }
-
-    .timeline::before {
-        left: 32px;           /* ligne décalée à gauche */
-        width: 4px;
-        background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-    }
-
-    .timeline-item {
-        margin: 3rem 0;
-        width: 100%;
-    }
-
-    .timeline-content {
-        width: 100%;
-        margin-left: 80px !important;   /* espace pour la ligne + icône */
-        margin-right: 15px;
-        text-align: left !important;
-        padding: 1.2rem;
-    }
-
-    /* Tous les éléments (year + icon) à gauche */
-    .timeline-year,
-    .timeline-icon {
-        left: 32px !important;
-        right: auto !important;
-        transform: translate(-50%, -50%) !important;
-    }
-
-    .timeline-year {
-        left: 0 !important;
-        min-width: 70px;
-        text-align: center;
-        transform: translateY(-50%) !important;
-        font-size: 1rem;
-        padding: 0.5rem 0.8rem;
-    }
-
-    .timeline-icon {
-        left: 32px !important;
-        width: 48px;
-        height: 48px;
-        font-size: 1.3rem;
-        border-width: 4px;
-    }
-
-    /* Plus besoin de différencier odd/even */
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 80px !important;
-        margin-right: 15px !important;
-        text-align: left !important;
-    }
-}
-
-/* Encore plus petit (très petits écrans) */
-@media (max-width: 480px) {
-    .timeline::before {
-        left: 24px;
-    }
-
-    .timeline-content {
-        margin-left: 65px !important;
-        padding: 1rem;
-    }
-
-    .timeline-year {
-        min-width: 60px;
-        font-size: 0.95rem;
-    }
-
-    .timeline-icon {
-        width: 44px;
-        height: 44px;
-        left: 24px !important;
-    }
-}
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Historique - ADSEK 976</title>
+    <meta name="description" content="Parcours et histoire de l'association ADSEK 976 pour l'environnement à Koungou, Mayotte"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-    <!-- En-tête -->
-    <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="logo.png.png" alt="Logo ADSEK 976">
+
+<header>
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo ADSEK 976">
+        </div>
+        <div class="header-text">
+            <h1>Association ADSEK 976</h1>
+            <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="historique.html" class="active"><i class="fas fa-history"></i> Historique</a></li>
+        <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+        <li><a href="missions.html"><i class="fas fa-bullseye"></i> Missions</a></li>
+        <li class="dropdown">
+            <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <a href="actions.html">Toutes les actions</a>
+                <a href="reboisement.html">Reboisement</a>
+                <a href="sensibilisation.html">Sensibilisation</a>
+                <a href="nettoyage.html">Nettoyage</a>
             </div>
-            <div class="header-text">
-                <h1>Association ADSEK 976</h1>
-                <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </li>
+        <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="section-header">
+        <h2>Notre Histoire</h2>
+        <p>Découvrez le parcours de l'ADSEK 976 depuis sa création jusqu'à aujourd'hui.</p>
+    </section>
+
+    <div class="timeline">
+        <!-- Exemple d'item – à compléter avec vos vraies dates -->
+        <div class="timeline-item">
+            <div class="timeline-year">2009</div>
+            <div class="timeline-icon"><i class="fas fa-seedling"></i></div>
+            <div class="timeline-content">
+                <h3>Création de l'association</h3>
+                <p>Fondation sous le nom initial A.A.M.K pour promouvoir sport, culture et environnement.</p>
             </div>
         </div>
-    </header>
-    
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="historique.html" class="active"><i class="fas fa-history"></i> Historique</a></li>
-            <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
-            <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
-            <li class="dropdown">
-                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
-                <div class="dropdown-content">
-                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
-                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
-                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
-                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
-                </div>
-            </li>
-            <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <!-- Section introduction -->
-        <section>
-            <div class="page-header">
-                <h2>Notre Histoire</h2>
-                <p>Découvrez le parcours de l'ADSEK 976, de sa création à aujourd'hui, et les valeurs qui nous animent depuis le début.</p>
-            </div>
-            
-            <div class="intro-text">
-                <p>Notre asociation a été crée le 29 avril 2009 à Koungou au nom de Association Amicale Msafara de Koungou (A.A.M.K) pour objet de promovoir le sport, la culture et l'environnement de Mayotte; de développer des échanges culturels dans la région et oeuvrer pour l'éducation des jeunes.
-                    Le 18 novembre 2009, l'association a modifié les objectifs. Puis elle a changé de nouveau nom et de nouveaux objectifs le 22 février 2019, devenu Association pour le Développement et la Sauvegarde de l'Environnement de Koungou (ADSEK976
-                    )
-                    Au 1er janvier 2026, l'ADSEK a 25 adhérents et 135 bénévoles.
-                    ADSEK est affiliée à Fédération Mahoraise des Associations Environnementale
-                    L'ADSEK base son projet strategique sur 3 actions:
-                </p>
-                <p>1. Sensiblisation</p>
-                <p>2. Nettoyage</p>
-                <p>3. Reboisement</p>
-                <p>Notre engagement s'est progressivement renforcé au fil des ans, passant d'initiatives locales à des programmes structurés qui touchent aujourd'hui toute la commune de Koungou et au-delà.</p>
-            </div>
-        </section>
 
-        <!-- Timeline de notre histoire -->
-        <section class="timeline-section">
-            <div class="section-header">
-                <h3>Notre Parcours en Dates Clés</h3>
-            </div>
-            
-            <div class="timeline">
-                <!-- Événement 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-year">2015</div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Création de l'Association</h3>
-                        <p>Fondation de l'ADSEK 976 par un groupe de 12 bénévoles déterminés à agir pour l'environnement de Koungou. Premières actions de nettoyage dans les quartiers.</p>
-                    </div>
-                </div>
-                
-                <!-- Événement 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-year">2016</div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Première Campagne de Reboisement</h3>
-                        <p>Lancement de notre premier grand projet : plantation de 200 arbres endémiques dans les zones dégradées de la commune après le passage d'un cyclone.</p>
-                    </div>
-                </div>
-                
-                <!-- Événement 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-year">2018</div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Programme Éducatif dans les Écoles</h3>
-                        <p>Début de nos interventions dans les établissements scolaires pour sensibiliser les jeunes générations à la protection de l'environnement.</p>
-                    </div>
-                </div>
-                
-                <!-- Événement 4 -->
-                <div class="timeline-item">
-                    <div class="timeline-year">2020</div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Partenariat avec la Mairie</h3>
-                        <p>Signature d'une convention de partenariat avec la Mairie de Koungou, permettant d'élargir notre champ d'action et d'obtenir des moyens supplémentaires.</p>
-                    </div>
-                </div>
-                
-                <!-- Événement 5 -->
-                <div class="timeline-item">
-                    <div class="timeline-year">2023</div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Reconnaissance Régionale</h3>
-                        <p>L'ADSEK 976 reçoit le prix de l'Initiative Environnementale de l'année pour son projet innovant de gestion des déchets dans les quartiers prioritaires.</p>
-                    </div>
-                </div>
-                
-                <!-- Événement 6 -->
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-icon">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Expansion à l'Échelle de Mayotte</h3>
-                        <p>Nos programmes s'étendent à d'autres communes de l'île, avec la création de nouvelles antennes et la formation d'équipes locales.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section nos valeurs -->
-        <section class="values-section">
-            <div class="section-header">
-                <h3>Les Valeurs qui Nous Animent</h3>
-                <p>Depuis notre création, ces principes fondamentaux guident chacune de nos actions</p>
-            </div>
-            
-            <div class="values-container">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>Respect de la Nature</h4>
-                    <p>Nous croyons en une relation harmonieuse entre l'homme et son environnement, basée sur le respect et la préservation des écosystèmes.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h4>Action Collective</h4>
-                    <p>Nous sommes convaincus que les plus grands changements viennent de l'action commune et de la participation citoyenne.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h4>Éducation et Sensibilisation</h4>
-                    <p>L'éducation environnementale est au cœur de notre mission pour créer un impact durable sur les générations futures.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h4>Engagement Local</h4>
-                    <p>Nous agissons au plus près des réalités du terrain, en nous adaptant aux spécificités de notre territoire mahorais.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section fondateurs -->
-        <section class="founders-section">
-            <div class="section-header">
-                <h3>Nos Fondateurs</h3>
-                <p>Les personnes visionnaires à l'origine de notre association</p>
-            </div>
-            
-            <div class="founders-grid">
-                <div class="founder-card">
-                    <img src="fondateur1.jpg" alt="Portrait de fondateur" class="founder-img">
-                    <div class="founder-info">
-                        <h4>Karima Ali</h4>
-                        <div class="founder-role">Présidente Fondatrice</div>
-                        <p>"Notre volonté était de créer une structure qui puisse agir concrètement pour notre environnement local."</p>
-                    </div>
-                </div>
-                
-                <div class="founder-card">
-                    <img src="fondateur2.jpg" alt="Portrait de fondateur" class="founder-img">
-                    <div class="founder-info">
-                        <h4>Ahmed Bacar</h4>
-                        <div class="founder-role">Vice-président Fondateur</div>
-                        <p>"Nous avions la conviction qu'ensemble, nous pouvions faire évoluer les mentalités et les pratiques."</p>
-                    </div>
-                </div>
-                
-                <div class="founder-card">
-                    <img src="fondateur3.jpg" alt="Portrait de fondateur" class="founder-img">
-                    <div class="founder-info">
-                        <h4>Fatima Madi</h4>
-                        <div class="founder-role">Secrétaire Générale Fondatrice</div>
-                        <p>"L'éducation environnementale est notre meilleur outil pour un changement durable."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section témoignages -->
-        <section class="testimonials">
-            <div class="section-header">
-                <h3>Ce Qu'ils Disent de Nous</h3>
-            </div>
-            
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"L'ADSEK a transformé notre quartier. Grâce à leurs actions, notre environnement est plus propre et les habitants sont plus sensibilisés."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>M. Djamal, Habitant de Koungou</strong>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Travailler avec l'ADSEK nous a permis d'implémenter des projets environnementaux efficaces dans notre commune."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>Mairie de Koungou</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Pied de page -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="logo.png.png" alt="Logo ADSEK 976">
-                </div>
-                <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou à Mayotte. Agissons ensemble pour un avenir durable.</p>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Liens rapides</h4>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
-                    <li><a href="actions.html"><i class="fas fa-hands-helping"></i> Nos actions</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h4>Nous contacter</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Koungou, Mayotte 97600</p>
-                <p><i class="fas fa-envelope"></i> contact@adsek976.org</p>
-                <p><i class="fas fa-phone"></i> +262 639 XX XX XX</p>
-                
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook ADSEK 976"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram ADSEK 976"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter ADSEK 976"><i class="fab fa-twitter"></i></a>
-                </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2019</div>
+            <div class="timeline-icon"><i class="fas fa-tree"></i></div>
+            <div class="timeline-content">
+                <h3>Changement de nom et d'objectifs</h3>
+                <p>Devenue ADSEK 976 – Association pour le Développement et la Sauvegarde de l'Environnement de Koungou.</p>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 ADSEK 976. Tous droits réservés.</p>
-            <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+
+        <!-- Ajouter les autres années... -->
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <h4>ADSEK 976</h4>
+            <p>Pour un environnement préservé à Koungou</p>
         </div>
-    </footer>
+        <div>
+            <h4>Liens rapides</h4>
+            <ul style="list-style:none;">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="historique.html">Historique</a></li>
+                <li><a href="actions.html">Actions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>Koungou – Mayotte 97600</p>
+            <p>contact@adsek976.org</p>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:2rem; opacity:0.8;">
+        <p>© 2026 ADSEK 976 – Tous droits réservés</p>
+    </div>
+</footer>
+
+<script>
+// Gestion du menu déroulant sur mobile (click au lieu de hover)
+document.addEventListener('DOMContentLoaded', () => {
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdown = document.querySelector('.dropdown');
+
+    if (dropbtn) {
+        dropbtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
