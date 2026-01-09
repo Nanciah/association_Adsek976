@@ -370,24 +370,27 @@
     
     <!-- Navigation -->
     <nav>
+    <div class="nav-container">
+        <button class="hamburger" aria-label="Ouvrir le menu">☰</button>
         <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
-            <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
-            <li><a href="missions.html" class="active"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="historique.html">Historique</a></li>
+            <li><a href="equipe.html">Équipe</a></li>
+            <li><a href="missions.html">Nos Missions</a></li>
             <li class="dropdown">
-                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+                <button class="dropbtn">Actions ▼</button>
                 <div class="dropdown-content">
-                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
-                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
-                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
-                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
+                    <a href="actions.html">Toutes les Actions</a>
+                    <a href="reboisement.html">Reboisement</a>
+                    <a href="sensibilisation.html">Sensibilisation</a>
+                    <a href="nettoyage.html">Nettoyage</a>
                 </div>
             </li>
-            <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="partenaires.html">Partenaires</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
+    </div>
+</nav>
     
     <main>
         <!-- Section introduction -->
@@ -647,5 +650,22 @@
             <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
         </div>
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', function() {
+        navUl.classList.toggle('active');
+    });
+
+    // Ferme le menu après clic sur un lien
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            navUl.classList.remove('active');
+        });
+    });
+});
+</script>
 </body>
 </html>

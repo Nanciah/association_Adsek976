@@ -18,14 +18,16 @@
     </div>
 </header>
     
-    <nav>
+   <nav>
+    <div class="nav-container">
+        <button class="hamburger" aria-label="Ouvrir le menu">☰</button>
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="historique.html">Historique</a></li>
             <li><a href="equipe.html">Équipe</a></li>
             <li><a href="missions.html">Nos Missions</a></li>
             <li class="dropdown">
-                <button class="dropbtn">Actions</button>
+                <button class="dropbtn">Actions ▼</button>
                 <div class="dropdown-content">
                     <a href="actions.html">Toutes les Actions</a>
                     <a href="reboisement.html">Reboisement</a>
@@ -36,7 +38,8 @@
             <li><a href="partenaires.html">Partenaires</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
+    </div>
+</nav>
     
     <section>
         <h2>Sensibilisation</h2>
@@ -48,5 +51,23 @@
     </footer>
     
     <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', function() {
+        navUl.classList.toggle('active');
+    });
+
+    // Ferme le menu après clic sur un lien
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            navUl.classList.remove('active');
+        });
+    });
+});
+</script>
+
 </body>
 </html>
