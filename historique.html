@@ -205,36 +205,88 @@
         }
 
         /* Responsive pour la timeline */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px;
-            }
+        /* ================= TIMELINE MOBILE ================= */
+@media (max-width: 900px) {  /* ← un peu plus large que 768px pour anticiper les tablettes */
+    .timeline {
+        max-width: 100%;
+        padding: 1rem 0;
+    }
 
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 60px !important;
-                text-align: left !important;
-            }
+    .timeline::before {
+        left: 32px;           /* ligne décalée à gauche */
+        width: 4px;
+        background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    }
 
-            .timeline-year,
-            .timeline-icon {
-                left: 20px !important;
-                right: auto !important;
-                transform: translateY(-50%) !important;
-            }
+    .timeline-item {
+        margin: 3rem 0;
+        width: 100%;
+    }
 
-            .timeline-year {
-                left: 0 !important;
-                transform: translate(-100%, -50%) !important;
-            }
-        }
+    .timeline-content {
+        width: 100%;
+        margin-left: 80px !important;   /* espace pour la ligne + icône */
+        margin-right: 15px;
+        text-align: left !important;
+        padding: 1.2rem;
+    }
 
-        @media (max-width: 480px) {
-            .values-container,
-            .founders-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    /* Tous les éléments (year + icon) à gauche */
+    .timeline-year,
+    .timeline-icon {
+        left: 32px !important;
+        right: auto !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .timeline-year {
+        left: 0 !important;
+        min-width: 70px;
+        text-align: center;
+        transform: translateY(-50%) !important;
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .timeline-icon {
+        left: 32px !important;
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+        border-width: 4px;
+    }
+
+    /* Plus besoin de différencier odd/even */
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 80px !important;
+        margin-right: 15px !important;
+        text-align: left !important;
+    }
+}
+
+/* Encore plus petit (très petits écrans) */
+@media (max-width: 480px) {
+    .timeline::before {
+        left: 24px;
+    }
+
+    .timeline-content {
+        margin-left: 65px !important;
+        padding: 1rem;
+    }
+
+    .timeline-year {
+        min-width: 60px;
+        font-size: 0.95rem;
+    }
+
+    .timeline-icon {
+        width: 44px;
+        height: 44px;
+        left: 24px !important;
+    }
+}
     </style>
 </head>
 <body>
