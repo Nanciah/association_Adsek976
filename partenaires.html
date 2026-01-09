@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partenaires - ADSEK 976 | Nos collaborations pour l'environnement</title>
+    <meta name="description" content="Découvrez les partenaires institutionnels et associatifs qui soutiennent l'ADSEK 976 dans sa mission pour la protection de l'environnement à Mayotte">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques à la page Partenaires */
+        
+        /* Introduction */
+        .partners-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 20px;
+        }
+
+        .partners-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium-text);
+        }
+
+        /* Filtres des partenaires */
+        .partner-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .partner-filter-btn:hover,
+        .partner-filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Grille des partenaires */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
+
+        .partner-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            text-align: center;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .partner-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .partner-logo-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--light-gray);
+        }
+
+        .partner-logo {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .partner-info {
+            padding: 1.5rem;
+        }
+
+        .partner-name {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-type {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .partner-description {
+            color: var(--medium-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            min-height: 4rem;
+        }
+
+        .partner-website {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .partner-website:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Section partenariats stratégiques */
+        .strategic-partners {
+            background: linear-gradient(135deg, var(--light-green), rgba(232, 245, 233, 0.8));
+            padding: 4rem 20px;
+            margin: 4rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .strategic-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .strategic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .strategic-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .strategic-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Section devenir partenaire */
+        .become-partner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 4rem 20px;
+            border-radius: var(--border-radius);
+            margin: 4rem auto;
+            max-width: 1000px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .become-partner h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .become-partner p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .become-partner .btn {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .become-partner .btn:hover {
+            background: var(--light-green);
+        }
+
+        /* Section avantages partenariat */
+        .benefits-section {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .partner-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+            
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partner-logo-container {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo ADSEK 976">
+            </div>
+            <div class="header-text">
+                <h1>Association ADSEK 976</h1>
+                <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
+            <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+            <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
+            <li class="dropdown">
+                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
+                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
+                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
+                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
+                </div>
+            </li>
+            <li><a href="partenaires.html" class="active"><i class="fas fa-handshake"></i> Partenaires</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Section introduction -->
+        <section>
+            <div class="page-header">
+                <h2>Nos Partenaires</h2>
+                <p>Des collaborations fortes pour un impact environnemental plus grand</p>
+            </div>
+            
+            <div class="partners-intro">
+                <p>L'ADSEK 976 travaille en étroite collaboration avec un réseau diversifié de partenaires institutionnels, associatifs et privés. Ces collaborations nous permettent d'amplifier notre impact, de mutualiser nos ressources et d'innover dans nos actions pour la protection de l'environnement à Mayotte.</p>
+            </div>
+        </section>
+
+        <!-- Filtres des partenaires -->
+        <div class="partner-filters">
+            <button class="partner-filter-btn active" data-filter="all">Tous les partenaires</button>
+            <button class="partner-filter-btn" data-filter="institutionnel">Institutionnels</button>
+            <button class="partner-filter-btn" data-filter="associatif">Associatifs</button>
+            <button class="partner-filter-btn" data-filter="prive">Secteur privé</button>
+            <button class="partner-filter-btn" data-filter="education">Éducation</button>
+        </div>
+
+        <!-- Grille des partenaires -->
+        <section class="partners-grid-section">
+            <div class="partners-grid">
+                <!-- Partenaire 1 - FMAE -->
+                <div class="partner-card" data-category="associatif">
+                    <div class="partner-badge">Association</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-fmae.png" alt="Logo FMAE" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">FMAE</h3>
+                        <span class="partner-type">Fédération Mahoraise des Associations Environnementales</span>
+                        <p class="partner-description">Fédération regroupant les principales associations environnementales de Mayotte pour une action coordonnée à l'échelle du territoire.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 2 - Oulanga Na Nyamba -->
+                <div class="partner-card" data-category="associatif">
+                    <div class="partner-badge">Association</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-oulanga.png" alt="Logo Oulanga Na Nyamba" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Oulanga Na Nyamba</h3>
+                        <span class="partner-type">Protection des tortues marines</span>
+                        <p class="partner-description">Association spécialisée dans la protection des tortues marines et la sensibilisation à la biodiversité marine de Mayotte.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 3 - Ceta'Maore -->
+                <div class="partner-card" data-category="associatif">
+                    <div class="partner-badge">Association</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-cetamaore.png" alt="Logo Ceta'Maore" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Ceta'Maore</h3>
+                        <span class="partner-type">Étude et protection des cétacés</span>
+                        <p class="partner-description">Association dédiée à l'étude et à la protection des mammifères marins dans les eaux mahoraises.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 4 - Naturalistes de Mayotte -->
+                <div class="partner-card" data-category="associatif">
+                    <div class="partner-badge">Association</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-naturalistes.png" alt="Logo Naturalistes de Mayotte" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Naturalistes de Mayotte</h3>
+                        <span class="partner-type">Expertise scientifique</span>
+                        <p class="partner-description">Association de naturalistes professionnels et amateurs qui étudient et protègent la biodiversité terrestre de Mayotte.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 5 - Mairie de Koungou -->
+                <div class="partner-card" data-category="institutionnel">
+                    <div class="partner-badge" style="background: #2c3e50;">Institution</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-mairie-koungou.png" alt="Logo Mairie de Koungou" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Mairie de Koungou</h3>
+                        <span class="partner-type">Collectivité territoriale</span>
+                        <p class="partner-description">Partenariat stratégique pour la mise en œuvre des politiques environnementales locales et l'accès aux équipements communaux.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 6 - Conseil Départemental -->
+                <div class="partner-card" data-category="institutionnel">
+                    <div class="partner-badge" style="background: #2c3e50;">Institution</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-conseil-departemental.png" alt="Logo Conseil Départemental" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Conseil Départemental</h3>
+                        <span class="partner-type">Collectivité départementale</span>
+                        <p class="partner-description">Soutien financier et logistique pour nos projets structurants à l'échelle du département de Mayotte.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 7 - Rectorat de Mayotte -->
+                <div class="partner-card" data-category="institutionnel education">
+                    <div class="partner-badge" style="background: #2c3e50;">Éducation</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-rectorat.png" alt="Logo Rectorat de Mayotte" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Communauté d'Agglomération du Grand Nord de Mayotte</h3>
+                        <span class="partner-type">Collectivité territorial</span>
+                        <p class="partner-description">Convention pour intervenir dans les établissements scolaires et développer des programmes éducatifs environnementaux.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Partenaire 8 - Entreprise locale -->
+                <div class="partner-card" data-category="prive">
+                    <div class="partner-badge" style="background: #f39c12;">Entreprise</div>
+                    <div class="partner-logo-container">
+                        <img src="logo-entreprise-locale.png" alt="Logo entreprise partenaire" class="partner-logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Mayotte Propreté</h3>
+                        <span class="partner-type">Entreprise de collecte</span>
+                        <p class="partner-description">Partenariat pour la collecte et le traitement des déchets issus de nos opérations de nettoyage.</p>
+                        <a href="#" class="partner-website">Visiter le site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section partenariats stratégiques -->
+        <section class="strategic-partners">
+            <div class="section-header">
+                <h3>Partenariats Stratégiques</h3>
+                <p>Des collaborations ciblées pour des actions spécifiques</p>
+            </div>
+
+            <div class="strategic-grid">
+                <div class="strategic-card">
+                    <div class="strategic-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h4>Lutte contre la Pollution Plastique</h4>
+                    <p>Partenariat avec 5 associations pour le programme "Mayotte Sans Plastique" : collecte, sensibilisation et alternatives durables.</p>
+                    <ul>
+                        <li>FMAE - Coordination</li>
+                        <li>Oulanga Na Nyamba - Actions marines</li>
+                        <li>Naturalistes - Expertise scientifique</li>
+                    </ul>
+                </div>
+
+                <div class="strategic-card">
+                    <div class="strategic-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Programme de Reboisement</h4>
+                    <p>Collaboration avec la Direction de l'Environnement et les pépiniéristes locaux pour restaurer les zones dégradées.</p>
+                    <ul>
+                        <li>Fourniture de plants endémiques</li>
+                        <li>Expertise technique</li>
+                        <li>Suivi scientifique</li>
+                    </ul>
+                </div>
+
+                <div class="strategic-card">
+                    <div class="strategic-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Éducation Environnementale</h4>
+                    <p>Programme commun avec l'Éducation Nationale pour intégrer l'éducation au développement durable dans les écoles.</p>
+                    <ul>
+                        <li>15 écoles partenaires</li>
+                        <li>Formation des enseignants</li>
+                        <li>Matériel pédagogique</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section avantages du partenariat -->
+        <section class="benefits-section">
+            <div class="section-header">
+                <h3>Les Avantages du Partenariat</h3>
+                <p>Pourquoi collaborer avec l'ADSEK 976 ?</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4>Visibilité accrue</h4>
+                    <p>Votre organisation bénéficie d'une visibilité auprès de notre communauté et dans nos communications.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Réseau élargi</h4>
+                    <p>Accès à notre réseau de partenaires et de bénévoles engagés pour l'environnement.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Innovation sociale</h4>
+                    <p>Participez à des projets innovants qui créent un impact positif sur l'environnement et la société.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>RSE valorisée</h4>
+                    <p>Pour les entreprises, une collaboration concrète qui valorise votre engagement RSE (Responsabilité Sociétale des Entreprises).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section devenir partenaire -->
+        <section class="become-partner">
+            <h3>Devenir Partenaire</h3>
+            <p>Vous souhaitez collaborer avec nous pour protéger l'environnement de Mayotte ? Que vous soyez une association, une institution ou une entreprise, nous sommes ouverts à différents types de partenariats adaptés à vos objectifs et à nos besoins communs.</p>
+            <a href="contact.html" class="btn">Nous contacter pour un partenariat <i class="fas fa-handshake"></i></a>
+        </section>
+
+        <!-- Section témoignages partenaires -->
+        <section>
+            <div class="section-header">
+                <h3>Témoignages de Nos Partenaires</h3>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Travailler avec l'ADSEK 976 nous a permis d'étendre nos actions de protection des tortues marines à de nouveaux sites. Leur réseau local et leur connaissance du terrain sont précieux."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Oulanga Na Nyamba</strong>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"La collaboration avec l'ADSEK est essentielle pour coordonner les actions environnementales à Mayotte. Leur professionnalisme et leur engagement sont remarquables."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>FMAE - Fédération Mahoraise des Associations Environnementales</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Logo ADSEK 976">
+                </div>
+                <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou à Mayotte. Agissons ensemble pour un avenir durable.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos missions</a></li>
+                    <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Nous contacter</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Koungou, Mayotte 97600</p>
+                <p><i class="fas fa-envelope"></i> contact@adsek976.org</p>
+                <p><i class="fas fa-phone"></i> +262 639 XX XX XX</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook ADSEK 976"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram ADSEK 976"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter ADSEK 976"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADSEK 976. Tous droits réservés.</p>
+            <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script pour les filtres des partenaires
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.partner-filter-btn');
+            const partnerCards = document.querySelectorAll('.partner-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Retirer la classe active de tous les boutons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filtrer les cartes
+                    partnerCards.forEach(card => {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

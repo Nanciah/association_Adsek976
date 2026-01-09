@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ADSEK 976 | Nous contacter pour l'environnement à Mayotte</title>
+    <meta name="description" content="Contactez l'ADSEK 976 pour toute question, projet ou participation à nos actions environnementales à Koungou, Mayotte">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques à la page Contact */
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section informations de contact */
+        .contact-info {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 1.8rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .contact-list i {
+            position: absolute;
+            left: 0;
+            top: 0.3rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--light-green);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-list strong {
+            display: block;
+            color: var(--secondary-color);
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-list a {
+            color: var(--medium-text);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .contact-list a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .contact-list small {
+            display: block;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Horaires d'ouverture */
+        .opening-hours {
+            background: var(--light-green);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+        }
+
+        .opening-hours h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .opening-hours ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .opening-hours li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Section formulaire */
+        .contact-form-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-form-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Section réseaux sociaux */
+        .social-contact {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .social-contact h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .social-icons-large {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-icons-large a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--light-green);
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons-large a:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* Section carte */
+        .map-section {
+            margin-top: 5rem;
+        }
+
+        .map-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 5rem;
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+        }
+
+        .faq-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item h4 i {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-info,
+            .contact-form-section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 0 15px;
+            }
+            
+            .faq-section {
+                padding: 2rem;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-icons-large {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info,
+            .contact-form-section {
+                padding: 1.5rem;
+            }
+            
+            .contact-list li {
+                padding-left: 2.5rem;
+            }
+            
+            .contact-list i {
+                width: 2rem;
+                height: 2rem;
+                font-size: 1rem;
+            }
+            
+            .form-submit {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png.png" alt="Logo ADSEK 976">
+            </div>
+            <div class="header-text">
+                <h1>Association ADSEK 976</h1>
+                <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
+            <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+            <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
+            <li class="dropdown">
+                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
+                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
+                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
+                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
+                </div>
+            </li>
+            <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
+            <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Section introduction -->
+        <section>
+            <div class="page-header">
+                <h2>Contactez-nous</h2>
+                <p>Nous sommes à votre écoute pour toute question, projet ou participation à nos actions environnementales</p>
+            </div>
+        </section>
+
+        <!-- Conteneur principal contact + formulaire -->
+        <section class="contact-container">
+            <!-- Informations de contact -->
+            <div class="contact-info">
+                <h3>Nos Coordonnées</h3>
+                
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Adresse</strong>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Koungou,+Mayotte" target="_blank">
+                            Koungou, Mayotte 97600
+                        </a>
+                        <small>Quartier Doujani, près de la mairie de Koungou</small>
+                    </li>
+                    
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <strong>Téléphone</strong>
+                        <a href="tel:+262639000000">+262 639 00 00 00</a>
+                        <small>Du lundi au vendredi, 9h-17h</small>
+                    </li>
+                    
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <strong>WhatsApp</strong>
+                        <a href="https://wa.me/262639000000" target="_blank">+262 639 00 00 00</a>
+                        <small>Pour un contact rapide</small>
+                    </li>
+                    
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <strong>Email</strong>
+                        <a href="mailto:nanciah05@gmail.com">nanciah05@gmail.com</a>
+                        <small>Réponse sous 48h</small>
+                    </li>
+                    
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <strong>Permanence</strong>
+                        <span>Mercredi : 14h-17h</span>
+                        <small>À notre local de Koungou</small>
+                    </li>
+                </ul>
+
+                <!-- Horaires d'ouverture -->
+                <div class="opening-hours">
+                    <h4><i class="fas fa-calendar-alt"></i> Horaires d'ouverture</h4>
+                    <ul>
+                        <li><span>Lundi - Vendredi</span> <span>9h00 - 17h00</span></li>
+                        <li><span>Samedi</span> <span>Sur rendez-vous</span></li>
+                        <li><span>Dimanche</span> <span>Fermé</span></li>
+                    </ul>
+                </div>
+
+                <!-- Réseaux sociaux -->
+                <div class="social-contact">
+                    <h4>Suivez-nous sur les réseaux</h4>
+                    <div class="social-icons-large">
+                        <a href="https://www.facebook.com/ADSEK976" target="_blank" aria-label="Facebook ADSEK 976">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram ADSEK 976">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Twitter ADSEK 976">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube ADSEK 976">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulaire de contact -->
+            <div class="contact-form-section">
+                <h3>Envoyez-nous un message</h3>
+                
+                <form id="contact-form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom et prénom">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+262 639 00 00 00">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionnez un sujet</option>
+                            <option value="benevole">Devenir bénévole</option>
+                            <option value="partenariat">Proposer un partenariat</option>
+                            <option value="projet">Proposer un projet</option>
+                            <option value="information">Demande d'information</option>
+                            <option value="autre">Autre demande</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Votre message..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                    </div>
+                    
+                    <small style="color: var(--light-text); display: block; margin-top: 1rem;">
+                        * Champs obligatoires. Nous vous répondrons dans les plus brefs délais.
+                    </small>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section carte -->
+        <section class="map-section">
+            <h3><i class="fas fa-map-marked-alt"></i> Notre Localisation</h3>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39728.237305944!2d45.198566!3d-12.813657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21a2f0b7e0f0b7e1%3A0x1234567890abcdef!2sKoungou%2C%20Mayotte!5e0!3m2!1sfr!2sfr!4v1700000000000" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Localisation de l'ADSEK 976 à Koungou, Mayotte">
+                </iframe>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: var(--medium-text);">
+                <i class="fas fa-info-circle"></i> Pour une localisation précise, contactez-nous par téléphone ou WhatsApp
+            </p>
+        </section>
+
+        <!-- Section FAQ -->
+        <section class="faq-section">
+            <h3>Questions Fréquentes</h3>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4><i class="fas fa-question-circle"></i> Comment devenir bénévole ?</h4>
+                    <p>Rien de plus simple ! Remplissez notre formulaire de contact, envoyez-nous un email ou contactez-nous par WhatsApp. Nous organiserons une rencontre pour discuter de vos disponibilités et centres d'intérêt.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4><i class="fas fa-calendar-check"></i> Quand sont les prochaines actions ?</h4>
+                    <p>Nous organisons régulièrement des actions de nettoyage, reboisement et sensibilisation. Suivez-nous sur Facebook pour être informé des prochaines dates ou contactez-nous pour recevoir notre newsletter.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4><i class="fas fa-handshake"></i> Comment proposer un partenariat ?</h4>
+                    <p>Nous sommes ouverts à toute forme de collaboration. Envoyez-nous un message détaillant votre proposition via le formulaire ou par email à nanciah05@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section call-to-action -->
+        <section class="become-partner">
+            <h3>Prêt à agir avec nous ?</h3>
+            <p>Que vous souhaitiez devenir bénévole, proposer un projet ou simplement en savoir plus sur nos actions, n'hésitez pas à nous contacter. Ensemble, protégeons l'environnement de Mayotte !</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+262639000000" class="btn" style="background: var(--white); color: var(--primary-color);">
+                    <i class="fas fa-phone"></i> Nous appeler
+                </a>
+                <a href="https://wa.me/262639000000" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:nanciah05@gmail.com" class="btn" style="background: var(--white); color: var(--primary-color);">
+                    <i class="fas fa-envelope"></i> Envoyer un email
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="logo.png.png" alt="Logo ADSEK 976">
+                </div>
+                <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou à Mayotte. Agissons ensemble pour un avenir durable.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos missions</a></li>
+                    <li><a href="actions.html"><i class="fas fa-hands-helping"></i> Nos actions</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact rapide</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Koungou, Mayotte 97600</p>
+                <p><i class="fas fa-envelope"></i> nanciah05@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +262 639 00 00 00</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ADSEK976" aria-label="Facebook ADSEK 976"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram ADSEK 976"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter ADSEK 976"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADSEK 976. Tous droits réservés.</p>
+            <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script pour le formulaire de contact
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Récupération des données du formulaire
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Simulation d'envoi (à remplacer par un vrai envoi backend)
+                    console.log('Données du formulaire:', formData);
+                    
+                    // Message de confirmation
+                    alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+                    
+                    // Réinitialisation du formulaire
+                    contactForm.reset();
+                    
+                    // Optionnel : scroll vers le haut
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // Animation pour les icônes de contact
+            const contactIcons = document.querySelectorAll('.contact-list i');
+            contactIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.2) rotate(10deg)';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

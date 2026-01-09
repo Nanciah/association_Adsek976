@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Missions - ADSEK 976 | Nos engagements pour l'environnement à Mayotte</title>
+    <meta name="description" content="Découvrez les missions fondamentales de l'ADSEK 976 pour la protection de l'environnement, la sensibilisation et le développement durable à Koungou, Mayotte">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques à la page Missions */
+        
+        /* Introduction */
+        .missions-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 20px;
+        }
+
+        .missions-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium-text);
+        }
+
+        /* Cartes des missions principales */
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
+
+        .mission-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .mission-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            min-height: 3rem;
+        }
+
+        .mission-card p {
+            color: var(--medium-text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-objectives {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .mission-objectives h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .mission-objectives ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .mission-objectives li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--medium-text);
+        }
+
+        .mission-objectives li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Section approche stratégique */
+        .strategy-section {
+            background: linear-gradient(135deg, var(--light-green), rgba(232, 245, 233, 0.8));
+            padding: 4rem 20px;
+            margin: 4rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .strategy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .strategy-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .strategy-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0 auto 1rem;
+        }
+
+        .strategy-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Section valeurs */
+        .values-section {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Section impact */
+        .impact-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 4rem 20px;
+            color: var(--white);
+            margin: 4rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .impact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .impact-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .impact-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Section vision */
+        .vision-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .vision-section::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .vision-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .vision-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        /* Section engagement */
+        .engagement-section {
+            background: var(--light-gray);
+            padding: 4rem 20px;
+            margin: 4rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .engagement-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .engagement-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .engagement-card h4 i {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .missions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .mission-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .vision-section {
+                padding: 2rem;
+            }
+            
+            .impact-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .missions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategy-grid,
+            .values-grid,
+            .engagement-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vision-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png.png" alt="Logo ADSEK 976">
+            </div>
+            <div class="header-text">
+                <h1>Association ADSEK 976</h1>
+                <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
+            <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+            <li><a href="missions.html" class="active"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
+            <li class="dropdown">
+                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
+                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
+                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
+                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
+                </div>
+            </li>
+            <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Section introduction -->
+        <section>
+            <div class="page-header">
+                <h2>Nos Missions</h2>
+                <p>Nos engagements fondamentaux pour préserver l'environnement de Mayotte</p>
+            </div>
+            
+            <div class="missions-intro">
+                <p>Depuis notre création, l'ADSEK 976 s'est fixé des missions claires pour répondre aux défis environnementaux de notre territoire. Ces missions guident chacune de nos actions et définissent notre contribution à la protection de la biodiversité unique de Mayotte.</p>
+            </div>
+        </section>
+
+        <!-- Missions principales -->
+        <section class="missions-main">
+            <div class="missions-grid">
+                <!-- Mission 1 - Protection environnementale -->
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Protéger l'Environnement</h3>
+                    <p>Préserver les écosystèmes terrestres et marins de Koungou et de Mayotte contre les diverses formes de pollution et de dégradation.</p>
+                    
+                    <div class="mission-objectives">
+                        <h4>Objectifs :</h4>
+                        <ul>
+                            <li>Réduire la pollution plastique et les déchets sauvages</li>
+                            <li>Protéger la biodiversité endémique</li>
+                            <li>Restaurer les zones naturelles dégradées</li>
+                            <li>Préserver les ressources en eau</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mission 2 - Sensibilisation -->
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Sensibiliser la Population</h3>
+                    <p>Éduquer et informer les habitants de Mayotte sur les enjeux environnementaux et les bonnes pratiques écologiques.</p>
+                    
+                    <div class="mission-objectives">
+                        <h4>Objectifs :</h4>
+                        <ul>
+                            <li>Éduquer les jeunes générations</li>
+                            <li>Informer le grand public</li>
+                            <li>Promouvoir les gestes écoresponsables</li>
+                            <li>Former les acteurs locaux</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mission 3 - Développement durable -->
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Promouvoir le Développement Durable</h3>
+                    <p>Encourager des pratiques respectueuses de l'environnement dans tous les secteurs d'activité à Mayotte.</p>
+                    
+                    <div class="mission-objectives">
+                        <h4>Objectifs :</h4>
+                        <ul>
+                            <li>Promouvoir l'agriculture durable</li>
+                            <li>Encourager les énergies renouvelables</li>
+                            <li>Développer l'écotourisme</li>
+                            <li>Favoriser l'économie circulaire</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approche stratégique -->
+        <section class="strategy-section">
+            <div class="section-header">
+                <h3>Notre Approche Stratégique</h3>
+                <p>Une méthodologie en 4 étapes pour maximiser notre impact</p>
+            </div>
+            
+            <div class="strategy-container">
+                <div class="strategy-grid">
+                    <div class="strategy-item">
+                        <div class="strategy-number">1</div>
+                        <h4>Diagnostic Territorial</h4>
+                        <p>Analyse précise des enjeux environnementaux spécifiques à chaque quartier de Koungou et de Mayotte.</p>
+                    </div>
+                    
+                    <div class="strategy-item">
+                        <div class="strategy-number">2</div>
+                        <h4>Action Concertée</h4>
+                        <p>Mobilisation de tous les acteurs : citoyens, institutions, entreprises pour une action collective efficace.</p>
+                    </div>
+                    
+                    <div class="strategy-item">
+                        <div class="strategy-number">3</div>
+                        <h4>Suivi et Évaluation</h4>
+                        <p>Mesure régulière de l'impact de nos actions et ajustement des stratégies en fonction des résultats.</p>
+                    </div>
+                    
+                    <div class="strategy-item">
+                        <div class="strategy-number">4</div>
+                        <h4>Capitalisation</h4>
+                        <p>Partage des bonnes pratiques et des enseignements pour reproduire les succès à plus grande échelle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Valeurs -->
+        <section class="values-section">
+            <div class="section-header">
+                <h3>Les Valeurs qui Nous Guident</h3>
+                <p>Des principes fondamentaux au cœur de toutes nos actions</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4>Solidarité</h4>
+                    <p>Nous croyons en la force du collectif et agissons ensemble pour le bien commun.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h4>Équité</h4>
+                    <p>Nous veillons à ce que les bénéfices de nos actions profitent à toutes les communautés.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Transparence</h4>
+                    <p>Nous rendons compte régulièrement de nos actions et de notre gestion.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p>Nous cherchons constamment des solutions nouvelles et adaptées aux défis locaux.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact -->
+        <section class="impact-section">
+            <div class="section-header">
+                <h3 style="color: white;">Notre Impact</h3>
+                <p style="color: rgba(255,255,255,0.9);">Des résultats concrets pour l'environnement de Mayotte</p>
+            </div>
+            
+            <div class="impact-container">
+                <div class="impact-item">
+                    <span class="impact-number">500+</span>
+                    <span class="impact-label">Arbres plantés</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">2T+</span>
+                    <span class="impact-label">Déchets collectés</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">1000+</span>
+                    <span class="impact-label">Personnes sensibilisées</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">15</span>
+                    <span class="impact-label">Écoles partenaires</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision -->
+        <section class="vision-section">
+            <h3>Notre Vision</h3>
+            <p>"Nous aspirons à un Mayotte où l'humain vit en harmonie avec la nature, où chaque génération transmet un environnement préservé à la suivante, et où le développement économique rime avec respect des écosystèmes. Nous rêvons d'une île où la biodiversité unique est protégée, où les déchets sont gérés de manière responsable, et où chaque habitant est un acteur engagé de la transition écologique."</p>
+        </section>
+
+        <!-- Engagements spécifiques -->
+        <section class="engagement-section">
+            <div class="section-header">
+                <h3>Nos Engagements Concrets</h3>
+                <p>Des promesses que nous tenons sur le terrain</p>
+            </div>
+            
+            <div class="engagement-grid">
+                <div class="engagement-card">
+                    <h4><i class="fas fa-water"></i> Protection du Littoral</h4>
+                    <p>Nous nous engageons à protéger les 8 km de côtes de Koungou contre la pollution et l'érosion, en collaboration avec les pêcheurs et les habitants.</p>
+                </div>
+                
+                <div class="engagement-card">
+                    <h4><i class="fas fa-seedling"></i> Reboisement Urbain</h4>
+                    <p>Planter au moins 100 arbres par an dans les espaces publics de Koungou pour améliorer la qualité de l'air et le cadre de vie.</p>
+                </div>
+                
+                <div class="engagement-card">
+                    <h4><i class="fas fa-recycle"></i> Économie Circulaire</h4>
+                    <p>Développer des solutions locales de recyclage et de réemploi pour réduire de 30% les déchets enfouis d'ici 2028.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+        <section class="become-partner" style="margin-top: 4rem;">
+            <h3>Participez à Notre Mission</h3>
+            <p>Vous partagez nos valeurs et souhaitez contribuer à la protection de l'environnement à Mayotte ? Rejoignez-nous en tant que bénévole, partenaire ou donateur.</p>
+            <a href="contact.html" class="btn">Nous rejoindre <i class="fas fa-hands-helping"></i></a>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="logo.png.png" alt="Logo ADSEK 976">
+                </div>
+                <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou à Mayotte. Agissons ensemble pour un avenir durable.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos missions</a></li>
+                    <li><a href="actions.html"><i class="fas fa-hands-helping"></i> Nos actions</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Nous contacter</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Koungou, Mayotte 97600</p>
+                <p><i class="fas fa-envelope"></i> contact@adsek976.org</p>
+                <p><i class="fas fa-phone"></i> +262 639 XX XX XX</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook ADSEK 976"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram ADSEK 976"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter ADSEK 976"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADSEK 976. Tous droits réservés.</p>
+            <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </div>
+    </footer>
+</body>
+</html>

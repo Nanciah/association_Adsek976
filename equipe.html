@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe - ADSEK 976 | Rencontrez notre équipe de bénévoles</title>
+    <meta name="description" content="Découvrez l'équipe passionnée de l'ADSEK 976 : bénévoles, administrateurs et membres actifs engagés pour l'environnement à Mayotte">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques à la page Équipe */
+        
+        /* Section introduction */
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 20px;
+        }
+
+        .team-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium-text);
+        }
+
+        /* Statistiques de l'équipe */
+        .team-stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 3rem 20px;
+            margin: 3rem 0;
+            color: var(--white);
+            border-radius: var(--border-radius);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Filtres d'équipe */
+        .team-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Grille des membres */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
+
+        .member-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-role {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .member-name {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .member-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .member-description {
+            color: var(--medium-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--light-green);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Section bénévoles */
+        .volunteers-section {
+            background: var(--light-gray);
+            padding: 4rem 20px;
+            margin: 3rem 0;
+        }
+
+        .volunteers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .volunteer-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .volunteer-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .volunteer-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .volunteer-name {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .volunteer-skills {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-top: 0.5rem;
+        }
+
+        /* Section rejoindre l'équipe */
+        .join-team {
+            background: linear-gradient(135deg, var(--light-green), rgba(232, 245, 233, 0.8));
+            padding: 4rem 20px;
+            border-radius: var(--border-radius);
+            margin: 4rem auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .join-team h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .join-team p {
+            color: var(--medium-text);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .volunteers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .volunteers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo.png.png" alt="Logo ADSEK 976">
+            </div>
+            <div class="header-text">
+                <h1>Association ADSEK 976</h1>
+                <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
+            <li><a href="equipe.html" class="active"><i class="fas fa-users"></i> Équipe</a></li>
+            <li><a href="missions.html"><i class="fas fa-bullseye"></i> Nos Missions</a></li>
+            <li class="dropdown">
+                <button class="dropbtn"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="actions.html"><i class="fas fa-list"></i> Toutes les Actions</a>
+                    <a href="reboisement.html"><i class="fas fa-tree"></i> Reboisement</a>
+                    <a href="sensibilisation.html"><i class="fas fa-bullhorn"></i> Sensibilisation</a>
+                    <a href="nettoyage.html"><i class="fas fa-trash-alt"></i> Nettoyage</a>
+                </div>
+            </li>
+            <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <!-- Section introduction -->
+        <section>
+            <div class="page-header">
+                <h2>Notre Équipe</h2>
+                <p>Découvrez les visages derrière l'ADSEK 976 : une équipe passionnée et engagée pour l'environnement</p>
+            </div>
+            
+            <div class="team-intro">
+                <p>L'ADSEK 976 repose sur l'engagement sans faille de bénévoles dévoués qui donnent de leur temps et de leur énergie pour préserver l'environnement de Mayotte. De la direction aux volontaires sur le terrain, chaque membre contribue à faire avancer notre mission commune.</p>
+            </div>
+        </section>
+
+        <!-- Statistiques de l'équipe -->
+        <section class="team-stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Membres actifs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Membres du bureau</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Bénévoles réguliers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Commissions thématiques</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bureau de l'association -->
+        <section>
+            <div class="section-header">
+                <h3>Le Bureau de l'Association</h3>
+                <p>Les membres élus qui assurent la gouvernance et la direction de notre association</p>
+            </div>
+
+            <!-- Filtres -->
+            <div class="team-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="bureau">Bureau</button>
+                <button class="filter-btn" data-filter="commission">Commissions</button>
+                <button class="filter-btn" data-filter="conseil">Conseil</button>
+            </div>
+
+            <!-- Grille des membres du bureau -->
+            <div class="team-grid">
+                <!-- Membre 1 - Président -->
+                <div class="member-card" data-category="bureau">
+                    <div class="member-role">Bureau</div>
+                    <img src="membre1.jpg" alt="Sidi BOINAÏDI - Président" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Sidi BOINAÏDI</h3>
+                        <span class="member-position">Président</span>
+                        <p class="member-description">Surveillant au collège de Koungou, Sidi dirige l'association depuis 2023 avec passion et détermination. Elle coordonne les projets et représente l'ADSEK auprès des institutions.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Sidi BOINAÏDI><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn de Sidi BOINAÏDI"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 2 - Vice-président -->
+                <div class="member-card" data-category="bureau">
+                    <div class="member-role">Bureau</div>
+                    <img src="membre2.jpg" alt="Henri Boina CARRON - Vice-président" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Henri Boina CARRON</h3>
+                        <span class="member-position">Vice-président</span>
+                        <p class="member-description">Entrepreneur, Henri Boina apporte son expertise technique à nos projets et de gestion des déchets. Il supervise la logistique des opérations.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email d'Ahmed Bacar"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn d'Ahmed Bacar"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 3 - Trésorier -->
+                <div class="member-card" data-category="bureau">
+                    <div class="member-role">Bureau</div>
+                    <img src="membre3.jpg" alt="Ben Mohamed Madi OUSSENI - Trésorier" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Ben Mohamed Madi OUSSENI</h3>
+                        <span class="member-position">Trésorier</span>
+                        <p class="member-description">Technicien territorial, Ben Mohamed Madi gère les finances de l'association avec rigueur et transparence. Elle assure la pérennité financière de nos projets.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Ben Mohamed Madi"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 4 - Secrétaire générale -->
+                <div class="member-card" data-category="bureau">
+                    <div class="member-role">Bureau</div>
+                    <img src="membre4.jpg" alt="Mariama Said - Secrétaire générale" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Mariama Said</h3>
+                        <span class="member-position">Secrétaire générale</span>
+                        <p class="member-description">Juriste spécialisée en droit de l'environnement, Mariama veille au respect des procédures et gère la documentation administrative de l'association.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Mariama Said"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn de Mariama Said"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 5 - Responsable sensibilisation -->
+                <div class="member-card" data-category="commission">
+                    <div class="member-role">Commission</div>
+                    <img src="membre5.jpg" alt="Youssouf Mohamed - Responsable sensibilisation" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Youssouf Mohamed</h3>
+                        <span class="member-position">Responsable Sensibilisation</span>
+                        <p class="member-description">Animateur socio-culturel, Youssouf développe nos programmes éducatifs et coordonne les interventions dans les écoles et les quartiers.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Youssouf Mohamed"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 6 - Responsable reboisement -->
+                <div class="member-card" data-category="commission">
+                    <div class="member-role">Commission</div>
+                    <img src="membre6.jpg" alt="Nassurati Omar - Responsable reboisement" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Nassurati Omar</h3>
+                        <span class="member-position">Responsable Reboisement</span>
+                        <p class="member-description">Botaniste passionné, Nassurati supervise nos projets de plantation et s'assure de la bonne sélection des espèces adaptées au climat mahorais.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Nassurati Omar"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 7 - Membre du conseil -->
+                <div class="member-card" data-category="conseil">
+                    <div class="member-role">Conseil</div>
+                    <img src="membre7.jpg" alt="Said Ali - Membre du conseil" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Said Ali</h3>
+                        <span class="member-position">Membre du Conseil</span>
+                        <p class="member-description">Ancien président, Said apporte son expérience et son réseau au service de l'association. Il représente l'ADSEK dans les instances consultatives.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Said Ali"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 8 - Responsable bénévoles -->
+                <div class="member-card" data-category="commission">
+                    <div class="member-role">Commission</div>
+                    <img src="membre8.jpg" alt="Zahra Ibrahim - Responsable bénévoles" class="member-image">
+                    <div class="member-info">
+                        <h3 class="member-name">Zahra Ibrahim</h3>
+                        <span class="member-position">Responsable Bénévoles</span>
+                        <p class="member-description">Chargée de recruter, former et coordonner nos bénévoles. Zahra assure la bonne intégration de chaque nouveau membre dans l'équipe.</p>
+                        <div class="member-social">
+                            <a href="#" aria-label="Email de Zahra Ibrahim"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn de Zahra Ibrahim"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section bénévoles actifs -->
+        <section class="volunteers-section">
+            <div class="section-header">
+                <h3>Nos Bénévoles Actifs</h3>
+                <p>Des citoyens engagés qui donnent vie à nos actions sur le terrain</p>
+            </div>
+
+            <div class="volunteers-grid">
+                <!-- Bénévole 1 -->
+                <div class="volunteer-item">
+                    <img src="benevole1.jpg" alt="Bénévole Anissa" class="volunteer-avatar">
+                    <div class="volunteer-name">Anissa</div>
+                    <div>Étudiante en biologie</div>
+                    <div class="volunteer-skills">Plantation, éducation</div>
+                </div>
+
+                <!-- Bénévole 2 -->
+                <div class="volunteer-item">
+                    <img src="benevole2.jpg" alt="Bénévole Djamel" class="volunteer-avatar">
+                    <div class="volunteer-name">Djamel</div>
+                    <div>Retraité</div>
+                    <div class="volunteer-skills">Logistique, nettoyage</div>
+                </div>
+
+                <!-- Bénévole 3 -->
+                <div class="volunteer-item">
+                    <img src="benevole3.jpg" alt="Bénévole Leïla" class="volunteer-avatar">
+                    <div class="volunteer-name">Leïla</div>
+                    <div>Professeure des écoles</div>
+                    <div class="volunteer-skills">Animation, sensibilisation</div>
+                </div>
+
+                <!-- Bénévole 4 -->
+                <div class="volunteer-item">
+                    <img src="benevole4.jpg" alt="Bénévole Moussa" class="volunteer-avatar">
+                    <div class="volunteer-name">Moussa</div>
+                    <div>Agriculteur</div>
+                    <div class="volunteer-skills">Reboisement, expertise locale</div>
+                </div>
+
+                <!-- Bénévole 5 -->
+                <div class="volunteer-item">
+                    <img src="benevole5.jpg" alt="Bénévole Salima" class="volunteer-avatar">
+                    <div class="volunteer-name">Salima</div>
+                    <div>Infirmière</div>
+                    <div class="volunteer-skills">Premiers secours, organisation</div>
+                </div>
+
+                <!-- Bénévole 6 -->
+                <div class="volunteer-item">
+                    <img src="benevole6.jpg" alt="Bénévole Yacine" class="volunteer-avatar">
+                    <div class="volunteer-name">Yacine</div>
+                    <div>Développeur web</div>
+                    <div class="volunteer-skills">Communication digitale</div>
+                </div>
+
+                <!-- Bénévole 7 -->
+                <div class="volunteer-item">
+                    <img src="benevole7.jpg" alt="Bénévole Fatou" class="volunteer-avatar">
+                    <div class="volunteer-name">Fatou</div>
+                    <div>Commerçante</div>
+                    <div class="volunteer-skills">Collecte de fonds</div>
+                </div>
+
+                <!-- Bénévole 8 -->
+                <div class="volunteer-item">
+                    <img src="benevole8.jpg" alt="Bénévole Hamidou" class="volunteer-avatar">
+                    <div class="volunteer-name">Hamidou</div>
+                    <div>Électricien</div>
+                    <div class="volunteer-skills">Maintenance, installation</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section rejoindre l'équipe -->
+        <section class="join-team">
+            <h3>Vous souhaitez nous rejoindre ?</h3>
+            <p>Que vous ayez quelques heures à consacrer ou que vous souhaitiez vous impliquer régulièrement, chaque contribution compte. Rejoignez notre équipe de bénévoles et participez activement à la protection de notre environnement.</p>
+            <a href="contact.html" class="btn btn-primary">Devenir bénévole <i class="fas fa-user-plus"></i></a>
+        </section>
+
+        <!-- Section commissions -->
+        <section>
+            <div class="section-header">
+                <h3>Nos Commissions Thématiques</h3>
+                <p>Des groupes de travail spécialisés pour avancer sur nos différents chantiers</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Commission 1 -->
+                <div class="member-card">
+                    <div class="member-info" style="text-align: center;">
+                        <div class="value-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3 class="member-name">Commission Reboisement</h3>
+                        <p class="member-description">Planification et mise en œuvre des projets de plantation, sélection des espèces, suivi de la croissance des arbres.</p>
+                        <div>12 membres • 2 projets en cours</div>
+                    </div>
+                </div>
+
+                <!-- Commission 2 -->
+                <div class="member-card">
+                    <div class="member-info" style="text-align: center;">
+                        <div class="value-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="member-name">Commission Sensibilisation</h3>
+                        <p class="member-description">Création d'outils pédagogiques, organisation d'ateliers, interventions dans les écoles et les quartiers.</p>
+                        <div>8 membres • 15 ateliers/an</div>
+                    </div>
+                </div>
+
+                <!-- Commission 3 -->
+                <div class="member-card">
+                    <div class="member-info" style="text-align: center;">
+                        <div class="value-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <h3 class="member-name">Commission Nettoyage</h3>
+                        <p class="member-description">Organisation des collectes de déchets, gestion du matériel, partenariats pour le recyclage.</p>
+                        <div>15 membres • 8 sites réguliers</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="logo.png.png" alt="Logo ADSEK 976">
+                </div>
+                <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou à Mayotte. Agissons ensemble pour un avenir durable.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+                    <li><a href="actions.html"><i class="fas fa-hands-helping"></i> Nos actions</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Nous contacter</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Koungou, Mayotte 97600</p>
+                <p><i class="fas fa-envelope"></i> contact@adsek976.org</p>
+                <p><i class="fas fa-phone"></i> +262 639 XX XX XX</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook ADSEK 976"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram ADSEK 976"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter ADSEK 976"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADSEK 976. Tous droits réservés.</p>
+            <p>Association pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script pour les filtres de l'équipe
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const memberCards = document.querySelectorAll('.member-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Retirer la classe active de tous les boutons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filtrer les cartes
+                    memberCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
