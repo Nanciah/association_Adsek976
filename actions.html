@@ -10,30 +10,34 @@
 </head>
 <body>
 
-<!-- Header -->
+<!-- Header + Nav identique à toutes les pages -->
 <header>
-    <div class="actions-grid">
-    <a href="reboisement.html" class="action-card">
-        <img src="reboisement.jpg" alt="Bénévoles ADSEK déchargeant des plants pour reboisement" class="action-image">
-        <div class="action-icon"><i class="fas fa-tree"></i></div>
-        <h3>Reboisement</h3>
-        <p>Plantation d'arbres endémiques et restauration des zones dégradées après cyclones et feux.</p>
-    </a>
+    <div class="header-content">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo ADSEK 976">
+        </div>
+        <div class="header-text">
+            <h1>Association ADSEK 976</h1>
+            <p>Pour le Développement et la Sauvegarde de l'Environnement de Koungou</p>
+        </div>
+    </div>
+</header>
 
-    <a href="sensibilisation.html" class="action-card">
-        <img src="sensibilisation.jpg" alt="Atelier de sensibilisation communautaire à Koungou" class="action-image">
-        <div class="action-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-        <h3>Sensibilisation</h3>
-        <p>Ateliers dans les écoles, campagnes dans les quartiers et événements communautaires.</p>
-    </a>
-
-    <a href="nettoyage.html" class="action-card">
-        <img src="nettoyage.jpg" alt="Jeunes en action lors d'une opération de nettoyage des déchets" class="action-image">
-        <div class="action-icon"><i class="fas fa-broom"></i></div>
-        <h3>Nettoyage</h3>
-        <p>Grandes opérations de ramassage de déchets sur les plages, rivières et espaces publics.</p>
-    </a>
-</div>
+<nav>
+    <!-- Même navigation que dans index.html -->
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="historique.html"><i class="fas fa-history"></i> Historique</a></li>
+        <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
+        <li><a href="missions.html"><i class="fas fa-bullseye"></i> Missions</a></li>
+        <li class="dropdown">
+            <button class="dropbtn active"><i class="fas fa-hands-helping"></i> Actions <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <a href="actions.html">Toutes les actions</a>
+                <a href="reboisement.html">Reboisement</a>
+                <a href="sensibilisation.html">Sensibilisation</a>
+                <a href="nettoyage.html">Nettoyage</a>
+            </div>
         </li>
         <li><a href="partenaires.html"><i class="fas fa-handshake"></i> Partenaires</a></li>
         <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -48,21 +52,18 @@
 
     <div class="actions-grid">
         <a href="reboisement.html" class="action-card">
-            <img src="images/reboisement.png" alt="Bénévoles ADSEK déchargeant des plants pour reboisement" class="action-image">
             <div class="action-icon"><i class="fas fa-tree"></i></div>
             <h3>Reboisement</h3>
             <p>Plantation d'arbres endémiques et restauration des zones dégradées après cyclones et feux.</p>
         </a>
 
         <a href="sensibilisation.html" class="action-card">
-            <img src="images/sensibilisation.jpg" alt="Atelier de sensibilisation communautaire à Koungou" class="action-image">
             <div class="action-icon"><i class="fas fa-chalkboard-teacher"></i></div>
             <h3>Sensibilisation</h3>
             <p>Ateliers dans les écoles, campagnes dans les quartiers et événements communautaires.</p>
         </a>
 
         <a href="nettoyage.html" class="action-card">
-            <img src="images/nettoyage.jpg.jpg" alt="Jeunes en action lors d'une opération de nettoyage des déchets" class="action-image">
             <div class="action-icon"><i class="fas fa-broom"></i></div>
             <h3>Nettoyage</h3>
             <p>Grandes opérations de ramassage de déchets sur les plages, rivières et espaces publics.</p>
@@ -75,8 +76,9 @@
     </div>
 </main>
 
-<!-- Footer -->
+<!-- Footer identique -->
 <footer>
+    <!-- Même footer que dans index.html -->
     <div class="footer-content">
         <div>
             <h4>ADSEK 976</h4>
@@ -94,7 +96,7 @@
         <div>
             <h4>Contact</h4>
             <p><i class="fas fa-map-marker-alt"></i> Koungou, Mayotte 97600</p>
-            <p><i class="fas fa-envelope"></i> contact@adsek976.org</p>
+            <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e0838f8e94818394a0818493858bd9d7d6ce8f9287">[email&#160;protected]</a></p>
         </div>
     </div>
     <div class="footer-bottom">
@@ -102,7 +104,8 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Même script menu mobile
 document.addEventListener('DOMContentLoaded', () => {
     const dropbtn = document.querySelector('.dropbtn');
     const dropdown = document.querySelector('.dropdown');
@@ -121,5 +124,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bbb92e738e14eb8',t:'MTc2ODA0MTgxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
